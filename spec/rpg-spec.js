@@ -1,34 +1,39 @@
-import {Character} from './../src/rpg.js';
-import {Gift} from './../src/rpg.js';
-// import {Enemy} from './../src/rpg.js';
+import {Character} from './../src/character.js';
+import {Gift} from './../src/gift.js';
+import {Enemy} from './../src/enemy.js';
 
 
 let player = new Character('Dawn', 'mage',);
-let enemy = new Character('bad guy', 'Garudo');
+let baddie = new Enemy('bad guy', 'Garudo');
 let wand = new Gift('wand');
 let sword = new Gift('sword');
 let lute = new Gift('lute');
 
 describe('character', function(){
+  var resusableCharacter;
+
+  beforeEach(function(){
+    resusableCharacter = new Character('Dawn', 'mage')
+  });
+
+  it('should reset character to beforeEach', function(){
+    console.log(resusableCharacter);
+  });
+
   it('should test if the character has a name', function(){
-    expect(player.name).not.toEqual('');
+    expect(resusableCharacter.name).not.toEqual('');
   });
   it('should test for the character type', function(){
-    expect(player.type).toEqual('mage');
+    expect(resusableCharacter.type).toEqual('mage');
     player.checkType();
-    expect(player.int).toEqual(16);
+    expect(resusableCharacter.int).toEqual(10);
   });
-});
-
-describe('gift', function(){
-  it('should test character type and gift accordingly', function(){
-    expect(wand.item).toEqual('wand');
+    it('should test character type and gift accordingly', function(){
+      expect(wand.item).toEqual('wand');
   });
-});
 
-describe('enemyAttack', function(){
-  it('should take points away from health per damage dealt', function() {
-    player.health -= enemy.damage;
-    expect(player.health).toEqual(6);
+    it('should take points away from health per damage dealt', function() {
+      resusableCharacter.health -= baddie.damage;
+      expect(baddie.damage).toEqual(5);
   });
 });
