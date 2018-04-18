@@ -1,6 +1,6 @@
 # _RPG_
 
-#### _A webpage for ordering a pizza_
+#### _A Role Playing Game_
 
 #### By _**Cameron Button and Dawn Mott April 18, 2018**_
 
